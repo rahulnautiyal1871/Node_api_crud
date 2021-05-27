@@ -21,6 +21,9 @@ var userSchema=new mongoose.Schema({
             unique:true,
         }
     },
+    password:{
+        type:String,
+    },
     dob:{
         type:Date,
     },

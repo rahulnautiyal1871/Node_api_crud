@@ -1,0 +1,1 @@
+exports.jwtTokenKey = 'rahulnautiyal';

@@ -5,17 +5,19 @@ const router = express.Router();
 const { createUser,getAllUser,updateUser,deleteUser,getSingleUser } = require('./controllers/userController')
 
 // calling middleware
-const { checkEmail } = require('./middlewares/userMiddleware')
+const { checkEmail } = require('./middlewares/userMiddleware');
+// authentication-middlewares
+const auth = require('./middlewares/authMiddleware')
 
-router.get('/user',getAllUser)
+router.get('/user',auth,getAllUser);
 
-router.get('/user/:user_id',getSingleUser)
+router.get('/user/:user_id',auth,getSingleUser)
 
 router.post('/user',checkEmail,createUser)
 
-router.put('/user/:user_id',updateUser)
+router.put('/user/:user_id',auth,updateUser)
 
-router.delete('/remove/:user_id',deleteUser)
+router.delete('/remove/:user_id',auth,deleteUser)
 
 
 

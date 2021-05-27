@@ -13,12 +13,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(morgan("dev"));
 
-const user =require('./router/index')
+const user =require('./router/index');
+const auth =require('./router/auth');
+
+// routers-of-api
 app.use('/api',user)
-
-
-
-
-
+app.use('/auth',auth)
 
 app.listen(port, function(){console.log(`App is running port number : ${port} `)})
